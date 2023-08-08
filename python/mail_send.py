@@ -114,7 +114,7 @@ def copy_save_lora_data_file():
         os.system('cp ' + infile_path + infile_name + ' ' + infile_path + outfile['name'])
         with open(infile_path + outfile['name'], "r") as f:
             outfile['content'] = f.read()
-            print(outfile['content'])
+            #print(outfile['content'])
         os.system('rm ' + infile_path + infile_name)
     except OSError:
         print('Error whth data file')
