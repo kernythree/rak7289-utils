@@ -4,7 +4,7 @@ echo "Installing loraship program as service"
 cp loraship_mqtt_service /etc/init.d
 chmod +x /etc/init.d/loraship_mqtt_service
 /etc/init.d/loraship_mqtt_service enable
-/etc/init.d/loraship_mqtt_service restart
+/etc/init.d/loraship_mqtt_service reload
 echo "Done"
 
 echo "Adding mail_send.py in crontab"

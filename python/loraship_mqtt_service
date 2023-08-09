@@ -6,10 +6,10 @@ USE_PROCD=1
 
 PROG="/root/ifremer/python/loraship_start.sh"
 
-PIDFILE=/var/run/loraship_mqtt_sub.pid
+PIDFILE=/root/ifremer/python/loraship_start.pid
 
 start_service() {
-        echo start service
+        echo start loraship service
         # commands to launch application
         procd_open_instance
         procd_set_param command /bin/sh $PROG
@@ -21,8 +21,20 @@ start_service() {
 }
 
 stop_service() {
-        echo stop service
+        echo stop loraship service
         # commands to kill application
+        # get PID of child processes running the python scripts that have been started with loraship_start.sh
+        echo will kill process with PID stored in mqtt_sub.pid if exists
+        cat /root/ifremer/python/mqtt_sub.pid | xargs kill -15
+        rm /root/ifremer/python/mqtt_sub.pid
+        echo done
 }
+
+reload_service() {
+        echo reload loraship service
+        stop
+        start
+}
+
 
 

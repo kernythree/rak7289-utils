@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "Starting the Loraship program"
-# without log file
-/usr/bin/micropython /root/ifremer/python/mqtt_sub.py &
-# with log file
-# /usr/bin/micropython /root/ifremer/python/mqtt_sub.py > /mnt/mmcblk0p1/ifremer_data/mqtt_sub.log &
+mkdir /mnt/mmcblk0p1/ifremer_data
+/usr/bin/micropython /root/ifremer/python/mqtt_sub.py &> /dev/null &
+echo "Saving PID of subprocess in /root/ifremer/python/mqtt_sub.pid"
+echo $! > /root/ifremer/python/mqtt_sub.pid
