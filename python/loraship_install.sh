@@ -8,7 +8,7 @@ chmod +x /etc/init.d/loraship_mqtt_service
 echo "Done"
 
 echo "Adding mail_send.py in crontab"
-echo "0 */2 * * * cd /mnt/mmcblk0p1/ifremer/python/ ; micropython mail_send.py" >> /etc/crontabs/root
+echo "0 */2 * * * cd /root/ifremer/python/ ; micropython mail_send.py" >> /etc/crontabs/root
 /etc/init.d/cron restart
 echo "Done"
 
